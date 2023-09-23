@@ -1,44 +1,56 @@
-//Insert, Delete, GetRandom in O(1)
+import java.util.*;
+
 public class RandomizedSet {
- 
-     private Map<Integer, Integer> elemIndexMap;
-     private List<Integer> lst;
-     private Random rand;
- 
-           //Constructor
+    private Map<Integer, Integer> elemIndexMap;
+    private List<Integer> lst;
+    private Random rand;
+
+    // Constructor
     public RandomizedSet() {
-      elemIndexMap = new HashMap<>();
-      lst = new ArrayList<>();
-         rand = new Random();
-     }
-     
-     public boolean insert(int val) {
-         if (!elemIndexMap.containsKey(val)) {
-             lst.add(val);
-             elemIndexMap.put(val, lst.size() - 1);
-             
-             return true;
-         }
-         return false;
-     }
-     
-     public boolean remove(int val) {
-         if (!elemIndexMap.containsKey(val) )
-             return false;
- 
-          int indexToRemove = elemIndexMap.get(val);
-          int lastElement = lst.get(lst.size() - 1);
- 
-                 lst.set(indexToRemove, lastElement);
-                 elemIndexMap.put(lastElement, indexToRemove);    
- 
-                 elemIndexMap.remove(val);
-                 lst.remove(lst.size() - 1);
- 
-                 return true;
-           }
-     
+        elemIndexMap = new HashMap<>();
+        lst = new ArrayList<>();
+        rand = new Random();
+    }
+
+    public boolean insert(int val) {
+        if (!elemIndexMap.containsKey(val)) {
+            lst.add(val);
+            elemIndexMap.put(val, lst.size() - 1);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean remove(int val) {
+        if (!elemIndexMap.containsKey(val))
+            return false;
+
+        int indexToRemove = elemIndexMap.get(val);
+        int lastElement = lst.get(lst.size() - 1);
+
+        lst.set(indexToRemove, lastElement);
+        elemIndexMap.put(lastElement, indexToRemove);
+
+        elemIndexMap.remove(val);
+        lst.remove(lst.size() - 1);
+
+        return true;
+    }
+
     public int getRandom() {
-         return lst.get(rand.nextInt(lst.size()));
-     }
+        return lst.get(rand.nextInt(lst.size()));
+    }
+
+    public static void main(String[] args) {
+        RandomizedSet randomizedSet = new RandomizedSet();
+
+        randomizedSet.insert(1);
+        randomizedSet.insert(2);
+        randomizedSet.insert(3);
+
+        randomizedSet.remove(2);
+
+        int randomElement = randomizedSet.getRandom();
+        System.out.println("Random element: " + randomElement);
+    }
 }
