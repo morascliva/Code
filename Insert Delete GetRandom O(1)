@@ -1,0 +1,44 @@
+//Insert, Delete, GetRandom in O(1)
+public class RandomizedSet {
+ 
+     private Map<Integer, Integer> elemIndexMap;
+     private List<Integer> lst;
+     private Random rand;
+ 
+           //Constructor
+    public RandomizedSet() {
+      elemIndexMap = new HashMap<>();
+      lst = new ArrayList<>();
+         rand = new Random();
+     }
+     
+     public boolean insert(int val) {
+         if (!elemIndexMap.containsKey(val)) {
+             lst.add(val);
+             elemIndexMap.put(val, lst.size() - 1);
+             
+             return true;
+         }
+         return false;
+     }
+     
+     public boolean remove(int val) {
+         if (!elemIndexMap.containsKey(val) )
+             return false;
+ 
+          int indexToRemove = elemIndexMap.get(val);
+          int lastElement = lst.get(lst.size() - 1);
+ 
+                 lst.set(indexToRemove, lastElement);
+                 elemIndexMap.put(lastElement, indexToRemove);    
+ 
+                 elemIndexMap.remove(val);
+                 lst.remove(lst.size() - 1);
+ 
+                 return true;
+           }
+     
+    public int getRandom() {
+         return lst.get(rand.nextInt(lst.size()));
+     }
+}
