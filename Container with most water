@@ -1,0 +1,20 @@
+import java.util.*;
+
+class TUF{
+    static int maxArea(int nums[]) {
+	   int mx = Integer.MIN_VALUE;
+    	for(int i = 0; i < nums.length; i++){
+    		for(int j = i + 1; j < nums.length; j++){
+    			int water = (j-i)* Math.min(nums[i], nums[j]);
+    			mx = Math.max(mx, water);
+    		}
+    	}
+        return mx;
+	}
+    public static void main(String args[])
+    {
+    	int nums[] = {1, 4, 2, 3};
+    	
+    	System.out.println("Maximum amount of water is: " + maxArea(nums));
+    }
+}
