@@ -1,4 +1,6 @@
 
+
+
 import java.util.*;
 
 public class tUf {
@@ -39,3 +41,4 @@ public class tUf {
         System.out.println("");
     }
 }
+
