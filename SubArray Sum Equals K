@@ -23,3 +23,11 @@ public class SubarraySumEqualsK {
         System.out.println("The number of Subarray is "+ cnt);
     }
 }
+
+
+
+
+Time Complexity: O(N2), where N = size of the array.
+Reason: We are using two nested loops here. As each of them is running for exactly N times, the time complexity will be approximately O(N2).
+
+Space Complexity: O(1) as we are not using any extra space.
