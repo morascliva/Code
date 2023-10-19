@@ -51,3 +51,11 @@ public class tUf {
     }
 
 }  
+
+
+
+
+
+Time Complexity: O(n)
+
+Space Complexity: O(k) since k array element needs to be stored in temp array
