@@ -20,3 +20,12 @@ public static void main(String args[]) {
   solve(arr, n);
 }
 }
+
+
+
+
+
+
+Time Complexity: O(n), as we iterate through the array only once.
+
+Space Complexity: O(1) as no extra space is used
