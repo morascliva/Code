@@ -68,3 +68,8 @@ class TUF {
     PrintList();
   }
 }
+
+
+Time Complexity: O(N) Because we are traversing the LinkedList to find out the first and second  Last Nodes in LinkedList. N is the No of Nodes in LinkedList. 
+
+Space Complexity: O(1) We are not using any extra space.
