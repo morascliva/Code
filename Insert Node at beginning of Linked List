@@ -45,3 +45,11 @@ class TUF {
     PrintList(head);
   }
 }
+
+
+
+Time Complexity:  O(1) Because we are just Manipulating the links, which is a constant operation.
+
+Space Complexity: O(1) We are not using any extra space.
+
+
